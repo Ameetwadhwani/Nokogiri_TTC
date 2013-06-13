@@ -6,7 +6,8 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/scraper.rb" changelist="c813276a-03f4-4157-8260-0a989eb75eb1" time="1371060629370" ignored="false" />
     <file path="/specs.rb" changelist="c813276a-03f4-4157-8260-0a989eb75eb1" time="1371068163392" ignored="false" />
-    <file path="/TTC_Routes.rb" changelist="c813276a-03f4-4157-8260-0a989eb75eb1" time="1371068204401" ignored="false" />
+    <file path="/TTC_Routes.rb" changelist="c813276a-03f4-4157-8260-0a989eb75eb1" time="1371141830476" ignored="false" />
+    <file path="/Dummy.txt" changelist="c813276a-03f4-4157-8260-0a989eb75eb1" time="1371141796454" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +32,7 @@
           <file leaf-file-name="specs.rb" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/specs.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="35" column="0" selection-start="871" selection-end="871" vertical-scroll-proportion="0.9025974">
+                <state line="35" column="0" selection-start="871" selection-end="871" vertical-scroll-proportion="0.89047617">
                   <folding />
                 </state>
               </provider>
@@ -62,7 +63,7 @@
           <file leaf-file-name="TTC_Routes.rb" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/TTC_Routes.rb">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="18" column="5" selection-start="509" selection-end="509" vertical-scroll-proportion="0.5607477">
+                <state line="15" column="8" selection-start="452" selection-end="452" vertical-scroll-proportion="0.5196305">
                   <folding />
                 </state>
               </provider>
@@ -77,6 +78,11 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
@@ -87,8 +93,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="63" />
+    <option name="y" value="43" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -144,8 +152,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
@@ -246,7 +255,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="63" y="43" width="1440" height="878" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -257,7 +266,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.56483793" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39182058" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -366,7 +375,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TTC_Routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="5" selection-start="509" selection-end="509" vertical-scroll-proportion="0.5607477">
+        <state line="15" column="8" selection-start="452" selection-end="452" vertical-scroll-proportion="0.5196305">
           <folding />
         </state>
       </provider>
