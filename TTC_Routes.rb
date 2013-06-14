@@ -1,27 +1,103 @@
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
+require 'csv'
+require 'openssl'
 
-#< Nokogiri::XML::Node
 
 #Files Being Accessed
 @url1 = "http://www.ttc.ca/RSS/Service_Alerts/index.rss"
 @url2 = "http://www.ttc.ca/Service_Advisories/all_service_alerts.jsp"
 @url3 = '/users/admin/desktop/ttcnotices.html'
-routes = '/users/admin/desktop/routes.txt'
-
-# get the content and time of each tweet
-p3 = Nokogiri::HTML(open(@url3))
-#a4 = p3.css('.time a').each{|time| puts time["title"]}
+@url4 = "https://twitter.com/ttcnotices"
+# = '/users/admin/desktop/routes.csv'
 
 
-#a5 = p3.css('.js-tweet-text.tweet-text').each{|tweet| puts tweet.text}
+
+#q = Nokogiri::HTML(open(@url4, :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
+#new_tweets = q.css('p.js-tweet-text').map do |tweet|
+#	type_match2 = /^([A-Z ]+):/.match(tweet.text)
+#	{
+#			:content =>tweet.text,
+#	    :type => type_match2 != nil ? type_match[1] : "DISRUPTION"
+#
+#	}
+#end
 
 
+
+p = Nokogiri::HTML(open(@url3))
+#do this when its multi-line
+old_tweets = p.css('p.js-tweet-text').map do |tweet|
+	type_match = /^([A-Z ]+):/.match(tweet.text)
+	{
+			:content => tweet.text,
+			:type =>  type_match != nil ? type_match[1] : "DISRUPTION"
+	}
+end
+
+# DateTime class with method parse magically converts the string to a date and time!
+p.css('.time a').each_with_index do |time, index|
+	parse_time = DateTime.parse(time["title"])
+	hash = old_tweets[index]
+	hash[:datetime] = parse_time
+end
+
+tweets = old_tweets
+
+#puts tweets
+
+f = File.open('twitter_data', 'w') do |file|
+	file.print("<html><body>")
+	file.print("<p>#{tweets[0][:content]}</p>")
+	file.print("</body></html>")
+	#file.print(tweets)
+end
+
+
+
+#open(filename [, mode [, perm]] [, opt]) {|file| block } → obj
+
+
+##
+#puts tweets.length
+#
+#$tweets = tweets
+
+
+# .map puts the output into an array
+#tweets = p.css('p.js-tweet-text').map{|tweet| tweet.text}
+
+# times =
+
+
+# print times in a new row#########################################
+#times = p.css('.time a').each{|time| puts time["title"]}
+
+
+
+#a4 = p.css('.time a')[1].each{|time| puts time["title"]}
+#a5 = p.css('.js-tweet-text.tweet-text').each{|tweet| puts tweet.text}
+
+#a4 = p.css('.time a').each{|time| puts time["title"]}
+#a5 = p.css('.js-tweet-text.tweet-text').each{|tweet| puts tweet.text}
+
+#a4 = p.css('.time a').each{"title"}
+#puts a4
+
+#get date and tweet together
+
+############# WORKS!! -- get the content and time of each tweet   ########################
+#p = Nokogiri::HTML(open(@url3))
+#a4 = p.css('.time a').each{|time| puts time["title"]}
+#a5 = p.css('.js-tweet-text.tweet-text').each{|tweet| puts tweet.text}
+
+####################################################################
 #puts a5
 #a1 = p3.css('p.js-tweet-text')
 #a2 = p3.css('a')[1]
 #a4 = p3.css('.time a').css('time')
+
 #a4 = p3.css('.time a')   ==>         # <a href="https://twitter.com/TTCnotices/status/301917793618649089" class="tweet-timestamp js-permalink js-nav" title="8:56 PM - 13 Feb 13"><span class="_timestamp js-short-timestamp " data-time="1360817786" data-long-form="true">13 Feb</span></a>
 
 #a1.each{|i| puts "#{i.text}\t#{i.'href']}\t#{i.''}"}
@@ -82,3 +158,16 @@ p3 = Nokogiri::HTML(open(@url3))
 #
 #The url of the second <li> element
 #page.css('li')[1]['href']
+
+#csv_text = File.read('/users/admin/desktop/routes.csv')
+#csv = CSV.parse(csv_text, :headers => true)
+#csv.each do |row|
+#	Mouldings.create!(row.to_hash)
+#end
+#puts csv
+
+
+#CSV.foreach(routes, 'wb') do |row|
+#	puts "route name is: #{route_short}"
+#end
+
