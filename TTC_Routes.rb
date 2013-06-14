@@ -53,21 +53,25 @@ tweets = old_tweets
 #############tweets.select {|tweet| puts tweet[:type] }     # => puts just type
 
 
-tweets.select {|tweet| puts tweet[:content] + ', ' + tweet[:type] + ', ' + tweet[:datetime].to_s}
+# GOLD #### tweets.select {|tweet| puts tweet[:content] + ', ' + tweet[:type] + ', ' + tweet[:datetime].to_s}
 
+d = tweets.flatten!
+puts d
+#disruptions = /"DISRUPTION"/.match(d)
+#puts disruptions.length
 
 
 
 f = File.open('twitter_data', 'w') do |file|
-	#file.print("<html><body>")
-	#file.print("<p>#{tweets[0][:content]}</p>")
-	#file.print(:content, :type, :datetime)
-	#file.print("</body></html>")
-	#file.print(tweets)
+	 file.puts tweets.select {|tweet| tweet[:content] + ', ' + tweet[:type] + ', ' + tweet[:datetime].to_s}
 end
 
 
-
+#file.print("<html><body>")
+#file.print("<p>#{tweets[0][:content]}</p>")
+#file.print(:content, :type, :datetime)
+#file.print("</body></html>")
+#file.print(tweets)
 
 
 #open(filename [, mode [, perm]] [, opt]) {|file| block } → obj
@@ -185,3 +189,32 @@ end
 #	puts "route name is: #{route_short}"
 #end
 
+#
+#
+#hash = {:key1 => "value1", :key2 => "value2"}
+#k = 'key1'
+#
+#hash[k.to_sym] # or iow, hash[:key1], which will return "value1"
+#Rails uses this class called HashWithIndifferentAccess that proves to be very useful in such cases. I know that you've only tagged your question with Ruby, but you could steal the implementation of this class from Rails' source to avoid string to symbol and symbol to string conversions throughout your codebase. It makes the value accessible by using a symbol or a string as a key.
+#
+#		                                                                                                                                                                                                                                                                                                                                                                                          hash = HashWithIndifferentAccess.new({:key1 => "value1", :key2 => "value2"})
+#hash[:key1]  # "value1"
+#hash['key1'] # "value1"
+#
+#
+#contact_info.each { |key, value| print key + ' = ' + value + "\n" }
+#
+#
+##!/usr/bin/env ruby
+#
+#person = { name:'Alice', age:22 }
+#
+## The "bad" way
+#puts "Hello #{person[:name]}, you are #{person[:age]} years old"
+#
+## The "better" way
+#puts "Hello %{name}, you are %{age} years old" % person
+#
+#h.each_value {|value| puts value }
+#
+#@fathers.select {|f| f["age"] > 35 }
