@@ -13,7 +13,7 @@ require 'openssl'
 # = '/users/admin/desktop/routes.csv'
 
 
-
+# this code will update the historic data with the latest updates.  stretch.  if implemented, refactor since code below is redundant
 #q = Nokogiri::HTML(open(@url4, :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE))
 #new_tweets = q.css('p.js-tweet-text').map do |tweet|
 #	type_match2 = /^([A-Z ]+):/.match(tweet.text)
@@ -32,7 +32,7 @@ old_tweets = p.css('p.js-tweet-text').map do |tweet|
 	type_match = /^([A-Z ]+):/.match(tweet.text)
 	{
 			:content => tweet.text,
-			:type =>  type_match != nil ? type_match[1] : "DISRUPTION"
+			:type =>  type_match != nil ? type_match[1] : 'DISRUPTION'
 	}
 end
 
@@ -45,14 +45,28 @@ end
 
 tweets = old_tweets
 
-#puts tweets
+
+
+#tweets.each {|value| puts value}   #->   all content {:content=>"47 Lansdowne buses diverting northbound via Davenport, Caledonia due to snow removal at St. Clair and Lansdowne. #TTC", :type=>"DISRUPTION", :datetime=>#<DateTime: 2013-02-13T20:56:00+00:00 ((2456337j,75360s,0n),+0s,2299161j)>}
+
+#tweets.each do |"#{:content}"| puts "#{tweets[type_match]}"     end
+#############tweets.select {|tweet| puts tweet[:type] }     # => puts just type
+
+
+tweets.select {|tweet| puts tweet[:content] + ', ' + tweet[:type] + ', ' + tweet[:datetime].to_s}
+
+
+
 
 f = File.open('twitter_data', 'w') do |file|
-	file.print("<html><body>")
-	file.print("<p>#{tweets[0][:content]}</p>")
-	file.print("</body></html>")
+	#file.print("<html><body>")
+	#file.print("<p>#{tweets[0][:content]}</p>")
+	#file.print(:content, :type, :datetime)
+	#file.print("</body></html>")
 	#file.print(tweets)
 end
+
+
 
 
 
